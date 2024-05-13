@@ -15,7 +15,7 @@ y_g = g(x)
 y_h = h(x)
 y_fft = np.fft.fft(y_g, norm = 'ortho')*np.fft.fft(y_h, norm = 'ortho')
 y_num = np.fft.fft(y_fft, norm='ortho')
-y_dft = np.append(y_num[int(len(x)/2)+1:], y_num[:int(len(x)/2)+1])
+y_dft = np.fft.fftshift(y_num)
 y_dft = y_dft*np.sqrt(n*(x[1]-x[0]))
 y = conv(x)
 
